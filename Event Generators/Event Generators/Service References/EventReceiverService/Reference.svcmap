@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f0cf7e62-7f5d-44de-9d9e-961b48b8669f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/CEP/EventReceiver" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2c8d9a12-f3bb-478f-98be-88e04c7451ec" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/EventReceiver" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f208f113-d978-4759-8c47-354d281bc6f8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/EventReceiver" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e2fab47c-bce3-4a8b-906f-e48c01123f70" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/EventReceiver" />
+    <MetadataFile FileName="CEP.Common.Simulations.xsd" MetadataType="Schema" ID="2dfeedec-7747-4181-a9ba-05647e4b82cc" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/EventReceiver" />
+    <MetadataFile FileName="CEP.Common.Simulations.Car.xsd" MetadataType="Schema" ID="f17f1a75-d1fe-4e04-9d7e-50e2818ce805" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/EventReceiver" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

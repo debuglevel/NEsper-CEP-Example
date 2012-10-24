@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b962be9c-cd5b-470a-9266-b288303b91cc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="74afd36b-628d-4762-be6c-fd1e03f5f551" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="efaabaa1-1663-4ddd-bc91-476b8ab0e400" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="3b32ee49-6a43-48cb-9480-9538ced8f140" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?disco" />
+    <MetadataFile FileName="SimulationInformationService.wsdl" MetadataType="Wsdl" ID="54c11877-442e-4c0c-a95a-800347c5f3b7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="3c4a9534-2ef4-41c5-9d81-52f58b6d203f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd3" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="3d8c5a66-ac0a-4cb4-b77c-5e55067b8da5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

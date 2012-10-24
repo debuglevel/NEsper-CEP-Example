@@ -1,0 +1,10 @@
+﻿<Window x:Class="CEP.Dashboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="300" Width="300">
+    <Grid>
+        <Button Content="Statement Manager" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Click="Button_StatementManager" />
+        <Button Content="Simulation Information" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Information" />
+
+    </Grid>
+</Window>

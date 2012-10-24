@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="484e522a-6427-4bc7-93a2-4ea1480ba5f4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/CEP/StatementManager" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e137c3c6-27b5-4fb2-8579-3f6e1b9ca8e7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/StatementManager" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6ae2eeea-bdf6-4e99-b3d8-fa1029f017c4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/StatementManager" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="1a7cfe21-b978-4871-9268-d198237cf77c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/StatementManager" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="1290ebb4-7129-45f3-bb62-1df72592a908" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/StatementManager" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
