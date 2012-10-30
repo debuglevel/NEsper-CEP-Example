@@ -8,351 +8,392 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServiceTester.ServiceReference1
-{
+namespace CEP.Dashboard.SimulationInformationService {
     using System.Runtime.Serialization;
     using System;
-
-
+    
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "Sensor", Namespace = "http://schemas.datacontract.org/2004/07/CEP.Common.Simulations")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocationPoint", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Utils")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServiceTester.ServiceReference1.SpeedSensor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServiceTester.ServiceReference1.TireSensor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServiceTester.ServiceReference1.LocationSensor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ServiceTester.ServiceReference1.TirePosition))]
-    public partial class Sensor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-
+    public partial class LocationPoint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private object IdentifierField;
-
+        private string IdentifierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> XField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> YField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
                 return this.extensionDataField;
             }
-            set
-            {
+            set {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public object Identifier
-        {
-            get
-            {
+        public string Identifier {
+            get {
                 return this.IdentifierField;
             }
-            set
-            {
-                if ((object.ReferenceEquals(this.IdentifierField, value) != true))
-                {
+            set {
+                if ((object.ReferenceEquals(this.IdentifierField, value) != true)) {
                     this.IdentifierField = value;
                     this.RaisePropertyChanged("Identifier");
                 }
             }
         }
-
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> X {
+            get {
+                return this.XField;
+            }
+            set {
+                if ((this.XField.Equals(value) != true)) {
+                    this.XField = value;
+                    this.RaisePropertyChanged("X");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Y {
+            get {
+                return this.YField;
+            }
+            set {
+                if ((this.YField.Equals(value) != true)) {
+                    this.YField = value;
+                    this.RaisePropertyChanged("Y");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
-        protected void RaisePropertyChanged(string propertyName)
-        {
+        
+        protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
+            if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "SpeedSensor", Namespace = "http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Sensor", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations")]
     [System.SerializableAttribute()]
-    public partial class SpeedSensor : ServiceTester.ServiceReference1.Sensor
-    {
-
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.TireSensor))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.SpeedSensor))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.LocationSensor))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.LocationPoint))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.TirePosition))]
+    public partial class Sensor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double SpeedField;
-
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Speed
-        {
-            get
-            {
-                return this.SpeedField;
+        private object IdentifierField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
             }
-            set
-            {
-                if ((this.SpeedField.Equals(value) != true))
-                {
-                    this.SpeedField = value;
-                    this.RaisePropertyChanged("Speed");
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object Identifier {
+            get {
+                return this.IdentifierField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdentifierField, value) != true)) {
+                    this.IdentifierField = value;
+                    this.RaisePropertyChanged("Identifier");
                 }
             }
         }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "TireSensor", Namespace = "http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TireSensor", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car")]
     [System.SerializableAttribute()]
-    public partial class TireSensor : ServiceTester.ServiceReference1.Sensor
-    {
-
+    public partial class TireSensor : CEP.Dashboard.SimulationInformationService.Sensor {
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ServiceTester.ServiceReference1.TirePosition PositionField;
-
+        private CEP.Dashboard.SimulationInformationService.TirePosition PositionField;
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double PressureField;
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ServiceTester.ServiceReference1.TirePosition Position
-        {
-            get
-            {
+        public CEP.Dashboard.SimulationInformationService.TirePosition Position {
+            get {
                 return this.PositionField;
             }
-            set
-            {
-                if ((this.PositionField.Equals(value) != true))
-                {
+            set {
+                if ((this.PositionField.Equals(value) != true)) {
                     this.PositionField = value;
                     this.RaisePropertyChanged("Position");
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Pressure
-        {
-            get
-            {
+        public double Pressure {
+            get {
                 return this.PressureField;
             }
-            set
-            {
-                if ((this.PressureField.Equals(value) != true))
-                {
+            set {
+                if ((this.PressureField.Equals(value) != true)) {
                     this.PressureField = value;
                     this.RaisePropertyChanged("Pressure");
                 }
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "LocationSensor", Namespace = "http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SpeedSensor", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car")]
     [System.SerializableAttribute()]
-    public partial class LocationSensor : ServiceTester.ServiceReference1.Sensor
-    {
-
+    public partial class SpeedSensor : CEP.Dashboard.SimulationInformationService.Sensor {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SpeedField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Speed {
+            get {
+                return this.SpeedField;
+            }
+            set {
+                if ((this.SpeedField.Equals(value) != true)) {
+                    this.SpeedField = value;
+                    this.RaisePropertyChanged("Speed");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocationSensor", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car")]
+    [System.SerializableAttribute()]
+    public partial class LocationSensor : CEP.Dashboard.SimulationInformationService.Sensor {
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double XField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double YField;
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double X
-        {
-            get
-            {
+        public double X {
+            get {
                 return this.XField;
             }
-            set
-            {
-                if ((this.XField.Equals(value) != true))
-                {
+            set {
+                if ((this.XField.Equals(value) != true)) {
                     this.XField = value;
                     this.RaisePropertyChanged("X");
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Y
-        {
-            get
-            {
+        public double Y {
+            get {
                 return this.YField;
             }
-            set
-            {
-                if ((this.YField.Equals(value) != true))
-                {
+            set {
+                if ((this.YField.Equals(value) != true)) {
                     this.YField = value;
                     this.RaisePropertyChanged("Y");
                 }
             }
         }
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "TirePosition", Namespace = "http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car")]
-    public enum TirePosition : int
-    {
-
+    [System.Runtime.Serialization.DataContractAttribute(Name="TirePosition", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car")]
+    public enum TirePosition : int {
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrontLeft = 0,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrontRight = 1,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BackLeft = 2,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BackRight = 3,
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName = "ServiceReference1.ISimulationInformationService", CallbackContract = typeof(ServiceTester.ServiceReference1.ISimulationInformationServiceCallback))]
-    public interface ISimulationInformationService
-    {
-
-        [System.ServiceModel.OperationContractAttribute(IsOneWay = true, Action = "http://tempuri.org/ISimulationInformationService/PingServerVoid")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SimulationInformationService.ISimulationInformationService", CallbackContract=typeof(CEP.Dashboard.SimulationInformationService.ISimulationInformationServiceCallback))]
+    public interface ISimulationInformationService {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/PingServerVoid")]
         void PingServerVoid();
-
-        [System.ServiceModel.OperationContractAttribute(IsOneWay = true, Action = "http://tempuri.org/ISimulationInformationService/PingServerVoid")]
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/PingServerVoid")]
         System.Threading.Tasks.Task PingServerVoidAsync();
-
-        [System.ServiceModel.OperationContractAttribute(IsOneWay = true, Action = "http://tempuri.org/ISimulationInformationService/PingServerVoidAndPingBack")]
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/PingServerVoidAndPingBack")]
         void PingServerVoidAndPingBack();
-
-        [System.ServiceModel.OperationContractAttribute(IsOneWay = true, Action = "http://tempuri.org/ISimulationInformationService/PingServerVoidAndPingBack")]
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/PingServerVoidAndPingBack")]
         System.Threading.Tasks.Task PingServerVoidAndPingBackAsync();
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ISimulationInformationService/PingServerBooleanAndPingBack", ReplyAction = "http://tempuri.org/ISimulationInformationService/PingServerBooleanAndPingBackResp" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/PingServerBooleanAndPingBack", ReplyAction="http://tempuri.org/ISimulationInformationService/PingServerBooleanAndPingBackResp" +
             "onse")]
         bool PingServerBooleanAndPingBack();
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ISimulationInformationService/PingServerBooleanAndPingBack", ReplyAction = "http://tempuri.org/ISimulationInformationService/PingServerBooleanAndPingBackResp" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/PingServerBooleanAndPingBack", ReplyAction="http://tempuri.org/ISimulationInformationService/PingServerBooleanAndPingBackResp" +
             "onse")]
         System.Threading.Tasks.Task<bool> PingServerBooleanAndPingBackAsync();
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ISimulationInformationService/PingServerBoolean", ReplyAction = "http://tempuri.org/ISimulationInformationService/PingServerBooleanResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/PingServerBoolean", ReplyAction="http://tempuri.org/ISimulationInformationService/PingServerBooleanResponse")]
         bool PingServerBoolean();
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ISimulationInformationService/PingServerBoolean", ReplyAction = "http://tempuri.org/ISimulationInformationService/PingServerBooleanResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/PingServerBoolean", ReplyAction="http://tempuri.org/ISimulationInformationService/PingServerBooleanResponse")]
         System.Threading.Tasks.Task<bool> PingServerBooleanAsync();
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ISimulationInformationService/SubscribeSensorData", ReplyAction = "http://tempuri.org/ISimulationInformationService/SubscribeSensorDataResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/SubscribeSensorData", ReplyAction="http://tempuri.org/ISimulationInformationService/SubscribeSensorDataResponse")]
         bool SubscribeSensorData();
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ISimulationInformationService/SubscribeSensorData", ReplyAction = "http://tempuri.org/ISimulationInformationService/SubscribeSensorDataResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/SubscribeSensorData", ReplyAction="http://tempuri.org/ISimulationInformationService/SubscribeSensorDataResponse")]
         System.Threading.Tasks.Task<bool> SubscribeSensorDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/DummyPointD", ReplyAction="http://tempuri.org/ISimulationInformationService/DummyPointDResponse")]
+        CEP.Dashboard.SimulationInformationService.LocationPoint DummyPointD();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/DummyPointD", ReplyAction="http://tempuri.org/ISimulationInformationService/DummyPointDResponse")]
+        System.Threading.Tasks.Task<CEP.Dashboard.SimulationInformationService.LocationPoint> DummyPointDAsync();
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISimulationInformationServiceCallback
-    {
-
-        [System.ServiceModel.OperationContractAttribute(IsOneWay = true, Action = "http://tempuri.org/ISimulationInformationService/PingDashboardVoid")]
+    public interface ISimulationInformationServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/PingDashboardVoid")]
         void PingDashboardVoid();
-
-        [System.ServiceModel.OperationContractAttribute(IsOneWay = true, Action = "http://tempuri.org/ISimulationInformationService/ReceiveSensorData")]
-        void ReceiveSensorData(ServiceTester.ServiceReference1.Sensor sensor);
-
-        [System.ServiceModel.OperationContractAttribute(IsOneWay = true, Action = "http://tempuri.org/ISimulationInformationService/ReceiveOverallAverageSpeed")]
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveSensorData")]
+        void ReceiveSensorData(CEP.Dashboard.SimulationInformationService.Sensor sensor);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveOverallAverageSpeed")]
         void ReceiveOverallAverageSpeed(System.Nullable<double> overallAverageSpeed);
-
-        [System.ServiceModel.OperationContractAttribute(IsOneWay = true, Action = "http://tempuri.org/ISimulationInformationService/ReceiveIndividualAverageSpeed")]
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveIndividualAverageSpeed")]
         void ReceiveIndividualAverageSpeed(string identifier, System.Nullable<double> individualAverageSpeed);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveIndividualLocation")]
+        void ReceiveIndividualLocation(CEP.Dashboard.SimulationInformationService.LocationPoint point);
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISimulationInformationServiceChannel : ServiceTester.ServiceReference1.ISimulationInformationService, System.ServiceModel.IClientChannel
-    {
+    public interface ISimulationInformationServiceChannel : CEP.Dashboard.SimulationInformationService.ISimulationInformationService, System.ServiceModel.IClientChannel {
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SimulationInformationServiceClient : System.ServiceModel.DuplexClientBase<ServiceTester.ServiceReference1.ISimulationInformationService>, ServiceTester.ServiceReference1.ISimulationInformationService
-    {
-
-        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance) :
-            base(callbackInstance)
-        {
+    public partial class SimulationInformationServiceClient : System.ServiceModel.DuplexClientBase<CEP.Dashboard.SimulationInformationService.ISimulationInformationService>, CEP.Dashboard.SimulationInformationService.ISimulationInformationService {
+        
+        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
-
-        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) :
-            base(callbackInstance, endpointConfigurationName)
-        {
+        
+        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
-
-        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) :
-            base(callbackInstance, endpointConfigurationName, remoteAddress)
-        {
+        
+        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
-
-        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
-            base(callbackInstance, endpointConfigurationName, remoteAddress)
-        {
+        
+        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
-
-        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
-            base(callbackInstance, binding, remoteAddress)
-        {
+        
+        public SimulationInformationServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
-
-        public void PingServerVoid()
-        {
+        
+        public void PingServerVoid() {
             base.Channel.PingServerVoid();
         }
-
-        public System.Threading.Tasks.Task PingServerVoidAsync()
-        {
+        
+        public System.Threading.Tasks.Task PingServerVoidAsync() {
             return base.Channel.PingServerVoidAsync();
         }
-
-        public void PingServerVoidAndPingBack()
-        {
+        
+        public void PingServerVoidAndPingBack() {
             base.Channel.PingServerVoidAndPingBack();
         }
-
-        public System.Threading.Tasks.Task PingServerVoidAndPingBackAsync()
-        {
+        
+        public System.Threading.Tasks.Task PingServerVoidAndPingBackAsync() {
             return base.Channel.PingServerVoidAndPingBackAsync();
         }
-
-        public bool PingServerBooleanAndPingBack()
-        {
+        
+        public bool PingServerBooleanAndPingBack() {
             return base.Channel.PingServerBooleanAndPingBack();
         }
-
-        public System.Threading.Tasks.Task<bool> PingServerBooleanAndPingBackAsync()
-        {
+        
+        public System.Threading.Tasks.Task<bool> PingServerBooleanAndPingBackAsync() {
             return base.Channel.PingServerBooleanAndPingBackAsync();
         }
-
-        public bool PingServerBoolean()
-        {
+        
+        public bool PingServerBoolean() {
             return base.Channel.PingServerBoolean();
         }
-
-        public System.Threading.Tasks.Task<bool> PingServerBooleanAsync()
-        {
+        
+        public System.Threading.Tasks.Task<bool> PingServerBooleanAsync() {
             return base.Channel.PingServerBooleanAsync();
         }
-
-        public bool SubscribeSensorData()
-        {
+        
+        public bool SubscribeSensorData() {
             return base.Channel.SubscribeSensorData();
         }
-
-        public System.Threading.Tasks.Task<bool> SubscribeSensorDataAsync()
-        {
+        
+        public System.Threading.Tasks.Task<bool> SubscribeSensorDataAsync() {
             return base.Channel.SubscribeSensorDataAsync();
+        }
+        
+        public CEP.Dashboard.SimulationInformationService.LocationPoint DummyPointD() {
+            return base.Channel.DummyPointD();
+        }
+        
+        public System.Threading.Tasks.Task<CEP.Dashboard.SimulationInformationService.LocationPoint> DummyPointDAsync() {
+            return base.Channel.DummyPointDAsync();
         }
     }
 }

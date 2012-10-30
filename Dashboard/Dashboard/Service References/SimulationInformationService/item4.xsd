@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations" />
+  <xs:complexType name="TireSensor">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations" base="q1:Sensor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Position" type="tns:TirePosition" />
+          <xs:element minOccurs="0" name="Pressure" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TireSensor" nillable="true" type="tns:TireSensor" />
+  <xs:simpleType name="TirePosition">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FrontLeft" />
+      <xs:enumeration value="FrontRight" />
+      <xs:enumeration value="BackLeft" />
+      <xs:enumeration value="BackRight" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TirePosition" nillable="true" type="tns:TirePosition" />
+  <xs:complexType name="SpeedSensor">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations" base="q2:Sensor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Speed" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SpeedSensor" nillable="true" type="tns:SpeedSensor" />
+  <xs:complexType name="LocationSensor">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations" base="q3:Sensor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="X" type="xs:double" />
+          <xs:element minOccurs="0" name="Y" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LocationSensor" nillable="true" type="tns:LocationSensor" />
+</xs:schema>

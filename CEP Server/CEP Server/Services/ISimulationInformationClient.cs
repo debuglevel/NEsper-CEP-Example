@@ -7,6 +7,7 @@ using System.Text;
 using System.Xml;
 using CEP.Common.Simulations;
 using CEP.Common.Simulations.Car;
+using CEP.Common.Utils;
 
 namespace CEP.Server.Adaptor.TCP
 {
@@ -25,6 +26,7 @@ namespace CEP.Server.Adaptor.TCP
         [OperationContract(IsOneWay = true)]
         void ReceiveIndividualAverageSpeed(string identifier, double? individualAverageSpeed);
 
-
+        [OperationContract(IsOneWay = true)]
+        void ReceiveIndividualLocation(LocationPoint point);
     }
 }

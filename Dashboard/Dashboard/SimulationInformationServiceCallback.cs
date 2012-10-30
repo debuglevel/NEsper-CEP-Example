@@ -4,12 +4,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ServiceTester.ServiceReference1;
+using CEP.Dashboard.SimulationInformationService;
 
 namespace CEP.Dashboard
 {
     class SimulationInformationServiceCallback : ISimulationInformationServiceCallback
     {
+        public delegate void LocationChangedEventHandler(LocationPoint location);
+        public event LocationChangedEventHandler LocationChanged;
+
         public SimulationInformationServiceCallback(Data data)
         {
             Data = data;
@@ -48,5 +51,12 @@ namespace CEP.Dashboard
             Debug.WriteLine("Receive Ping");
         }
 
+        void ISimulationInformationServiceCallback.ReceiveIndividualLocation(LocationPoint point)
+        {
+            if (this.LocationChanged != null)
+            {
+                this.LocationChanged(point);
+            }
+        }
     }
 }

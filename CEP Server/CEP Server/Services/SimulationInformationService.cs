@@ -7,6 +7,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using CEP.Common.Simulations;
+using CEP.Common.Utils;
 using CEP.Server;
 using com.espertech.esper.client;
 using log4net;
@@ -33,6 +34,7 @@ namespace CEP.Server.Adaptor.TCP
 
             epService.EPAdministrator.GetStatement("OverallAverageSpeed").Events += OnOverallAverageSpeed;
             epService.EPAdministrator.GetStatement("IndividualAverageSpeed").Events += OnIndividualAverageSpeed;
+            epService.EPAdministrator.GetStatement("LocationChange").Events += OnIndividualLocationChange;
 
             Log.Debug("Ping Dashboard");
             client.PingDashboardVoid();
@@ -51,6 +53,30 @@ namespace CEP.Server.Adaptor.TCP
             {
                 Log.Debug("Send OnIndividualAverageSpeed Event");
                 client.ReceiveIndividualAverageSpeed(identifier, avgSpeed);
+            }
+            catch (TimeoutException ex)
+            {
+                Log.Error("Sending notification timed out: " + ex.Message);
+            }
+            catch (CommunicationException ex)
+            {
+                Log.Error("Sending notification failed: " + ex.Message);
+            }
+        }
+
+        void OnIndividualLocationChange(object sender, UpdateEventArgs e)
+        {
+            var dict = e.NewEvents.FirstOrDefault().Underlying as Dictionary<String, object>;
+
+            var point = new LocationPoint();
+            point.X = dict["X"] as double?;
+            point.Y = dict["Y"] as double?;
+            point.Identifier = dict["Identifier"] as string;
+
+            try
+            {
+                Log.Debug("Send OnIndividualAverageSpeed Event");
+                client.ReceiveIndividualLocation(point);
             }
             catch (TimeoutException ex)
             {
@@ -121,5 +147,11 @@ namespace CEP.Server.Adaptor.TCP
             return true;
         }
 
+
+
+        public Common.Utils.LocationPoint DummyPointD()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

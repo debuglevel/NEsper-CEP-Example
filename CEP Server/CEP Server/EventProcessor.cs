@@ -50,6 +50,9 @@ namespace CEP.Server
 
         public void CreateStatements()
         {
+            // 
+            createStatement("LocationChange", "select Identifier, X, Y \n from LocationSensor");
+
             // Flussgeschwindigkeit aller Autos in den letzten X Sekunden
             createStatement("OverallAverageSpeed", "select avg(Speed) \n from SpeedSensor.win:time(30 sec)");
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="JWji5J4Th7VSogEcSEjUCfuXngI=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ALmJIf/xyyIgzBapK6pDxAPl3Ok=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="wsDualHttpBinding" name="WSDualHttpBinding_ISimulationInformationService">
+    <bindingConfiguration bindingType="wsDualHttpBinding" name="WSDualHttpBinding_ISimulationInformationService1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSDualHttpBinding_ISimulationInformationService</serializedValue>
+          <serializedValue>WSDualHttpBinding_ISimulationInformationService1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -97,7 +97,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSDualHttpBinding_ISimulationInformationService" contract="SimulationInformationService.ISimulationInformationService" bindingType="wsDualHttpBinding" address="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/SimulationInformation" bindingConfiguration="WSDualHttpBinding_ISimulationInformationService">
+    <endpoint name="WSDualHttpBinding_ISimulationInformationService1" contract="SimulationInformationService.ISimulationInformationService" bindingType="wsDualHttpBinding" address="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/SimulationInformation" bindingConfiguration="WSDualHttpBinding_ISimulationInformationService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/SimulationInformation</serializedValue>
@@ -109,7 +109,7 @@
           <serializedValue>wsDualHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSDualHttpBinding_ISimulationInformationService</serializedValue>
+          <serializedValue>WSDualHttpBinding_ISimulationInformationService1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>SimulationInformationService.ISimulationInformationService</serializedValue>
@@ -172,7 +172,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSDualHttpBinding_ISimulationInformationService</serializedValue>
+          <serializedValue>WSDualHttpBinding_ISimulationInformationService1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
