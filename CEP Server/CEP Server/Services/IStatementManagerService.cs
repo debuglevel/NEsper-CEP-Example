@@ -7,7 +7,7 @@ using System.Text;
 using System.Xml;
 using CEP.Common.Simulations;
 
-namespace CEP.Server.Adaptor.TCP
+namespace CEP.Server.Adaptor
 {
     [ServiceContract]
     public interface IStatementManagerService

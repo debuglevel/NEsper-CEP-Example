@@ -9,7 +9,7 @@ using CEP.Common.Simulations;
 using CEP.Common.Simulations.Car;
 using CEP.Common.Utils;
 
-namespace CEP.Server.Adaptor.TCP
+namespace CEP.Server.Adaptor
 {
     [ServiceContract(CallbackContract = typeof(ISimulationInformationClient))]
     public interface ISimulationInformationService
@@ -28,8 +28,5 @@ namespace CEP.Server.Adaptor.TCP
 
         [OperationContract]
         Boolean SubscribeSensorData();
-
-        [OperationContract]
-        LocationPoint DummyPointD();
     }
 }

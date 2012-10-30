@@ -12,7 +12,7 @@ using CEP.Server;
 using com.espertech.esper.client;
 using log4net;
 
-namespace CEP.Server.Adaptor.TCP
+namespace CEP.Server.Adaptor
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class SimulationInformationService : ISimulationInformationService
@@ -23,12 +23,14 @@ namespace CEP.Server.Adaptor.TCP
         public SimulationInformationService()
         {
             Log.Info("Created Service Instance of SimulationInformationService");
+            
+            client = OperationContext.Current.GetCallbackChannel<ISimulationInformationClient>();
         }
 
         public Boolean SubscribeSensorData()
         {
             Log.Info("Client subscribed to get sensor data");
-            client = OperationContext.Current.GetCallbackChannel<ISimulationInformationClient>();
+            //client = OperationContext.Current.GetCallbackChannel<ISimulationInformationClient>();
 
             EPServiceProvider epService = EPServiceProviderManager.GetDefaultProvider();
 
@@ -43,7 +45,7 @@ namespace CEP.Server.Adaptor.TCP
             return true;
         }
 
-        void OnIndividualAverageSpeed(object sender, UpdateEventArgs e)
+        private void OnIndividualAverageSpeed(object sender, UpdateEventArgs e)
         {
             var dict = e.NewEvents.FirstOrDefault().Underlying as Dictionary<String, object>;
             var avgSpeed = dict["avg(Speed)"] as double?;
@@ -57,14 +59,16 @@ namespace CEP.Server.Adaptor.TCP
             catch (TimeoutException ex)
             {
                 Log.Error("Sending notification timed out: " + ex.Message);
+                this.shutdownServiceInstance();
             }
             catch (CommunicationException ex)
             {
                 Log.Error("Sending notification failed: " + ex.Message);
+                this.shutdownServiceInstance();
             }
         }
 
-        void OnIndividualLocationChange(object sender, UpdateEventArgs e)
+        private void OnIndividualLocationChange(object sender, UpdateEventArgs e)
         {
             var dict = e.NewEvents.FirstOrDefault().Underlying as Dictionary<String, object>;
 
@@ -81,14 +85,16 @@ namespace CEP.Server.Adaptor.TCP
             catch (TimeoutException ex)
             {
                 Log.Error("Sending notification timed out: " + ex.Message);
+                this.shutdownServiceInstance();
             }
             catch (CommunicationException ex)
             {
                 Log.Error("Sending notification failed: " + ex.Message);
+                this.shutdownServiceInstance();
             }
         }
 
-        void OnOverallAverageSpeed(object sender, UpdateEventArgs e)
+        private void OnOverallAverageSpeed(object sender, UpdateEventArgs e)
         {
             var dict = e.NewEvents.FirstOrDefault().Underlying as Dictionary<String, object>;
             var avgSpeed = dict["avg(Speed)"] as double?;
@@ -101,10 +107,12 @@ namespace CEP.Server.Adaptor.TCP
             catch (TimeoutException ex)
             {
                 Log.Error("Sending notification timed out: " + ex.Message);
+                this.shutdownServiceInstance();
             }
             catch (CommunicationException ex)
             {
                 Log.Error("Sending notification failed: " + ex.Message);
+                this.shutdownServiceInstance();
             }
         }
 
@@ -147,11 +155,15 @@ namespace CEP.Server.Adaptor.TCP
             return true;
         }
 
-
-
-        public Common.Utils.LocationPoint DummyPointD()
+        private void shutdownServiceInstance()
         {
-            throw new NotImplementedException();
+            Log.Warn("Shutting down service instance");
+
+            EPServiceProvider epService = EPServiceProviderManager.GetDefaultProvider();
+
+            epService.EPAdministrator.GetStatement("OverallAverageSpeed").Events -= OnOverallAverageSpeed;
+            epService.EPAdministrator.GetStatement("IndividualAverageSpeed").Events -= OnIndividualAverageSpeed;
+            epService.EPAdministrator.GetStatement("LocationChange").Events -= OnIndividualLocationChange;
         }
     }
 }

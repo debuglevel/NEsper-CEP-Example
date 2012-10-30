@@ -10,7 +10,7 @@ using CEP.Server;
 using com.espertech.esper.client;
 using log4net;
 
-namespace CEP.Server.Adaptor.TCP
+namespace CEP.Server.Adaptor
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class EventReceiverService : IEventReceiverService

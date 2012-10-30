@@ -33,8 +33,7 @@ namespace CEP.Dashboard
         Chart chart;
         List<LocationPoint> positions = new List<LocationPoint>();
 
-        public InformationWindow(Data data)
-            : this()
+        public InformationWindow(Data data) : this()
         {
             this.data = data;
             this.DataContext = data;
@@ -43,6 +42,8 @@ namespace CEP.Dashboard
         public InformationWindow()
         {
             InitializeComponent();
+
+            this.setupLocationChart();
         }
 
         private void createProxy()
@@ -50,7 +51,7 @@ namespace CEP.Dashboard
             Debug.WriteLine("Create Proxy");
 
             this.callback = new SimulationInformationServiceCallback(data);
-            callback.LocationChanged += this.ChangePosition;
+            callback.LocationChanged += this.changeLocation;
 
             InstanceContext instanceContext = new InstanceContext(callback);
             this.proxy = new SimulationInformationServiceClient(instanceContext);
@@ -68,28 +69,17 @@ namespace CEP.Dashboard
             //var result = proxy.SubscribeSensorData();
             proxy.SubscribeSensorDataAsync();   // Caution: Skype listens on port 80 by default
             Debug.WriteLine("done: ");
-            //Debug.WriteLine("done: "+result);
         }
 
-        private void btnCreateChart_Click(object sender, RoutedEventArgs e)
+        private void setupLocationChart()
         {
             WindowsFormsHost host = this.windowsFormsHost;
-            var wfButton = new System.Windows.Forms.Button();
-            wfButton.Text = "Windows Forms Button";
-
-            host.Child = wfButton;
-
-
-            var chart1 = createChart();
-            this.chart = chart1;
-
-            host.Child = chart1;
+            this.chart = this.createLocationChart();
+            host.Child = this.chart;
         }
 
-        private static Chart createChart()
+        private Chart createLocationChart()
         {
-
-
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             var chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -122,45 +112,39 @@ namespace CEP.Dashboard
             chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            //series1.MarkerImage = "C:\\Users\\marc\\Desktop\\source\\nesper\\cep\\car.png";
             series1.Name = "Autos";
             chart1.Series.Add(series1);
             chart1.Size = new System.Drawing.Size(400, 400);
             chart1.TabIndex = 1;
             chart1.Text = "chart1";
 
-
-
-
-
             // Set point chart type
             chart1.Series["Autos"].ChartType = SeriesChartType.Point;
-
-            // Enable data points labels
-            //chart1.Series["Series1"].IsValueShownAsLabel = true;
-            //chart1.Series["Series1"]["LabelStyle"] = "Center";
 
             // Set marker size
             chart1.Series["Autos"].MarkerSize = 15;
 
             // Set marker shape
             chart1.Series["Autos"].MarkerStyle = MarkerStyle.Circle;
-            // Set to 3D
-            //chart1.ChartAreas[ [strChartArea].Area3DStyle.Enable3D = true;
 
-            //chart1.Series["Autos"].MarkerImage = "car.png";
+            chart1.Series["Autos"].MarkerImage = "car.png";
+
+            chart1.BorderlineDashStyle = ChartDashStyle.Dot;
+            chart1.BorderlineWidth = 2;
+            chart1.BorderlineColor = System.Drawing.Color.Gray;
+
             return chart1;
         }
 
-        public void ChangePosition(LocationPoint newLocationPoint)
+        private void changeLocation(LocationPoint newLocationPoint)
         {
             positions.RemoveAll(p => p.Identifier == newLocationPoint.Identifier);
             positions.Add(new LocationPoint() { Identifier = newLocationPoint.Identifier, X = newLocationPoint.X, Y = newLocationPoint.Y });
 
-            drawPositions();
+            drawLocations();
         }
 
-        private void drawPositions()
+        private void drawLocations()
         {
             chart.Series["Autos"].Points.Clear();
             foreach (var point in positions)

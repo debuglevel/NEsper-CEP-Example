@@ -16,8 +16,8 @@ namespace CEP.EventGenerators
         {
             Log.Info("Event Generator starting up...");
 
-            Log.Info("Starting TCP Adaptor...");
-            var tcpAdaptor = new TcpAdaptor();
+            Log.Info("Starting Adaptor...");
+            var tcpAdaptor = new Adaptor();
 
             Log.Info("Starting Car Simulator...");
             var carSimulator = new Simulations.CarSimulator(10);

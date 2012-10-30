@@ -8,13 +8,15 @@ using CEP.EventGenerators.EventReceiverService;
 
 namespace CEP.EventGenerators
 {
-    public class TcpAdaptor
+    public class Adaptor
     {
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         EventReceiverServiceClient service = new EventReceiverService.EventReceiverServiceClient();
 
         int eventsSentCount = 0;
+
+        object reconnectLock = new object();
 
         public void SendEvent(Sensor sensor)
         {
@@ -28,8 +30,15 @@ namespace CEP.EventGenerators
             catch (Exception e)
             {
                 Log.ErrorFormat("Sending Event failed: {0}", e.Message);
-                service.Abort();
-                service = new EventReceiverService.EventReceiverServiceClient();
+
+                lock (reconnectLock)
+                {
+                    if (service.State == System.ServiceModel.CommunicationState.Faulted)
+                    {
+                        Log.Warn("Creating new service client");
+                        service = new EventReceiverService.EventReceiverServiceClient();
+                    }
+                }
             }
         }
     }

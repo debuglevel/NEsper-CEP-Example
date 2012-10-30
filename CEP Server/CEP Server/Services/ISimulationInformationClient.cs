@@ -9,7 +9,7 @@ using CEP.Common.Simulations;
 using CEP.Common.Simulations.Car;
 using CEP.Common.Utils;
 
-namespace CEP.Server.Adaptor.TCP
+namespace CEP.Server.Adaptor
 {
     [ServiceContract]
     public interface ISimulationInformationClient

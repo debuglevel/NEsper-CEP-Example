@@ -10,7 +10,7 @@ using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using CEP.Server.Adaptor.TCP;
+using CEP.Server.Adaptor;
 using CEP.Server.Services;
 using com.espertech.esper.client;
 using log4net;
