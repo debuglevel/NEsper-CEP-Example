@@ -50,22 +50,45 @@ namespace CEP.Server
 
         public void CreateStatements()
         {
-            // 
-            createStatement("LocationChange", "select Identifier, X, Y \n from LocationSensor");
+            // every location change (for visualization)
+            {
+                var expr = 
+                    "SELECT Identifier, \n"+
+                    "       X, \n" +
+                    "       Y  \n "+
+                    " FROM  LocationSensor";
+                createStatement("LocationChange", expr);
+            }
 
-            // Flussgeschwindigkeit aller Autos in den letzten X Sekunden
-            createStatement("OverallAverageSpeed", "select avg(Speed) \n from SpeedSensor.win:time(30 sec)");
+            // flow rate of all cars in the last x seconds
+            {
+                var expr =
+                    "SELECT avg(Speed) \n " +
+                    " FROM  SpeedSensor.win:time(30 sec)";
+                createStatement("OverallAverageSpeed", expr);
+            }
 
-            // Flussgeschwindigkeit jedes einzelnen Autos in den letzten X Sekunden
-            createStatement("IndividualAverageSpeed", "select Identifier, avg(Speed) \n from SpeedSensor.win:time(30 sec) \n group by Identifier");
+            // flow rate of each individual car in the last x seconds
+            {
+                var expr =
+                    "SELECT    Identifier, \n" +
+                    "          avg(Speed)  \n" +
+                    " FROM     SpeedSensor.win:time(30 sec) \n " +
+                    " GROUP BY Identifier";
+                createStatement("IndividualAverageSpeed", expr);
+            }
 
-            // niedriger Reifendruck und hohe Geschwindigkeit
+            // low air pressure of a tire while driving fast
             {
                 String expression =
-                    "select speed.Identifier as c, Pressure as p, avg(Speed) as s " +
-                    "from SpeedSensor.win:time(10 sec) as speed, TireSensor.win:time(10 sec) as pressure " +
-                    "where speed.Identifier = pressure.Identifier " +
-                    "and pressure.Pressure < 1 and speed.Speed > 50";
+                    "SELECT speed.Identifier AS c, \n " +
+                    "       Pressure         AS p, \n" +
+                    "       avg(Speed)       AS s  \n" +
+                    " FROM  SpeedSensor.win:time(10 sec) AS speed,   \n" +
+                    "       TireSensor.win:time(10 sec)  AS pressure \n" +
+                    " WHERE speed.Identifier  =  pressure.Identifier \n" +
+                    "   AND pressure.Pressure <  1 \n" +
+                    "   AND speed.Speed       >  50";
 
                 createStatement("LowPressureAndHighSpeed", expression);
             }
