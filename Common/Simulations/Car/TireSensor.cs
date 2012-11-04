@@ -34,6 +34,8 @@ namespace CEP.Common.Simulations.Car
             {
                 this.Pressure = 0;
             }
+
+            base.update();
         }
     }
 }
