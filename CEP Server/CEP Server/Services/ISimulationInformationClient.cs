@@ -28,5 +28,8 @@ namespace CEP.Server.Adaptor
 
         [OperationContract(IsOneWay = true)]
         void ReceiveIndividualLocation(LocationPoint point);
+
+        [OperationContract(IsOneWay = true)]
+        void ReceiveNotificationDictionary(string statementName, Dictionary<String, object> dict);
     }
 }

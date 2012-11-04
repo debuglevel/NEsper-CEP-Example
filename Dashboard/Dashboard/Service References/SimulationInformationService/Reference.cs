@@ -15,89 +15,13 @@ namespace CEP.Dashboard.SimulationInformationService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LocationPoint", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Utils")]
-    [System.SerializableAttribute()]
-    public partial class LocationPoint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdentifierField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<double> XField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<double> YField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Identifier {
-            get {
-                return this.IdentifierField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IdentifierField, value) != true)) {
-                    this.IdentifierField = value;
-                    this.RaisePropertyChanged("Identifier");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> X {
-            get {
-                return this.XField;
-            }
-            set {
-                if ((this.XField.Equals(value) != true)) {
-                    this.XField = value;
-                    this.RaisePropertyChanged("X");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Y {
-            get {
-                return this.YField;
-            }
-            set {
-                if ((this.YField.Equals(value) != true)) {
-                    this.YField = value;
-                    this.RaisePropertyChanged("Y");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Sensor", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.TireSensor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.SpeedSensor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.LocationSensor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.LocationPoint))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, object>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CEP.Dashboard.SimulationInformationService.TirePosition))]
     public partial class Sensor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -241,6 +165,83 @@ namespace CEP.Dashboard.SimulationInformationService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocationPoint", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Utils")]
+    [System.SerializableAttribute()]
+    public partial class LocationPoint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdentifierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> XField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> YField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Identifier {
+            get {
+                return this.IdentifierField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdentifierField, value) != true)) {
+                    this.IdentifierField = value;
+                    this.RaisePropertyChanged("Identifier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> X {
+            get {
+                return this.XField;
+            }
+            set {
+                if ((this.XField.Equals(value) != true)) {
+                    this.XField = value;
+                    this.RaisePropertyChanged("X");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Y {
+            get {
+                return this.YField;
+            }
+            set {
+                if ((this.YField.Equals(value) != true)) {
+                    this.YField = value;
+                    this.RaisePropertyChanged("Y");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TirePosition", Namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car")]
     public enum TirePosition : int {
@@ -294,11 +295,11 @@ namespace CEP.Dashboard.SimulationInformationService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/SubscribeSensorData", ReplyAction="http://tempuri.org/ISimulationInformationService/SubscribeSensorDataResponse")]
         System.Threading.Tasks.Task<bool> SubscribeSensorDataAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/DummyPointD", ReplyAction="http://tempuri.org/ISimulationInformationService/DummyPointDResponse")]
-        CEP.Dashboard.SimulationInformationService.LocationPoint DummyPointD();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/SubscribeStatement", ReplyAction="http://tempuri.org/ISimulationInformationService/SubscribeStatementResponse")]
+        void SubscribeStatement(string statementName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/DummyPointD", ReplyAction="http://tempuri.org/ISimulationInformationService/DummyPointDResponse")]
-        System.Threading.Tasks.Task<CEP.Dashboard.SimulationInformationService.LocationPoint> DummyPointDAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/SubscribeStatement", ReplyAction="http://tempuri.org/ISimulationInformationService/SubscribeStatementResponse")]
+        System.Threading.Tasks.Task SubscribeStatementAsync(string statementName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -318,6 +319,9 @@ namespace CEP.Dashboard.SimulationInformationService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveIndividualLocation")]
         void ReceiveIndividualLocation(CEP.Dashboard.SimulationInformationService.LocationPoint point);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveNotificationDictionary")]
+        void ReceiveNotificationDictionary(string statementName, System.Collections.Generic.Dictionary<string, object> dict);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -388,12 +392,12 @@ namespace CEP.Dashboard.SimulationInformationService {
             return base.Channel.SubscribeSensorDataAsync();
         }
         
-        public CEP.Dashboard.SimulationInformationService.LocationPoint DummyPointD() {
-            return base.Channel.DummyPointD();
+        public void SubscribeStatement(string statementName) {
+            base.Channel.SubscribeStatement(statementName);
         }
         
-        public System.Threading.Tasks.Task<CEP.Dashboard.SimulationInformationService.LocationPoint> DummyPointDAsync() {
-            return base.Channel.DummyPointDAsync();
+        public System.Threading.Tasks.Task SubscribeStatementAsync(string statementName) {
+            return base.Channel.SubscribeStatementAsync(statementName);
         }
     }
 }

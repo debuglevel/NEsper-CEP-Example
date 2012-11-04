@@ -24,12 +24,13 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="9b1caae3-1ff9-4508-bd53-d6f3ef1633b8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd2" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="2796975c-e3d7-49e1-8175-eaccde4a2d7e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="8f5ec697-d12e-497d-852a-0e85eb659da7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd1" />
     <MetadataFile FileName="item.disco" MetadataType="Disco" ID="1f3cf433-9164-49cd-b6cb-89560490399f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?disco" />
     <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="272c8b1d-022f-4050-91eb-97067f9bb7c5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd4" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="ec03115f-c150-4628-acc4-0bbb4ae9c570" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd5" />
     <MetadataFile FileName="SimulationInformationService.wsdl" MetadataType="Wsdl" ID="29befccf-0a93-4847-aee4-889ef264c768" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="2796975c-e3d7-49e1-8175-eaccde4a2d7e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd3" />
     <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="43caa4e3-4c2d-43a3-b060-3a9580214059" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd0" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="8f5ec697-d12e-497d-852a-0e85eb659da7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

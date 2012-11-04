@@ -2,9 +2,14 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:CEP.Dashboard" x:Class="CEP.Dashboard.InformationWindow"
-        Title="InformationWindow" Height="552" Width="748.425">
+        Title="InformationWindow" Height="744" Width="751.425">
     <Window.DataContext>
-        <local:Data />
+        <local:Data >
+            <local:Data.Statements>
+                <local:Statement CQL="cql test" Name="name test"/>
+                <local:Statement CQL="cql2" Name="name2"/>
+            </local:Data.Statements>
+        </local:Data>
     </Window.DataContext>
     <Grid>
         <Button Content="Connect to CEP Server" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="136" Click="Button_Connect"/>
@@ -14,6 +19,16 @@
         <Label Content="Average Speed (Individual):" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
         <DataGrid HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Height="383" Width="283" IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding IndividualAverageSpeed}"/>
         <WindowsFormsHost x:Name="windowsFormsHost" HorizontalAlignment="Left" Height="400" Margin="322,104,0,0" VerticalAlignment="Top" Width="400"/>
+        
+        <ListBox x:Name="listboxStatements" HorizontalAlignment="Left" Height="93" Margin="538,6,0,0" VerticalAlignment="Top" Width="184" ItemsSource="{Binding Statements}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=(Name)}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="btnSubscribeStatement" Content="Subscribe" HorizontalAlignment="Left" Margin="458,6,0,0" VerticalAlignment="Top" Width="75" Click="btnSubscribeStatement_Click"/>
+        <TextBox x:Name="notifications" HorizontalAlignment="Left" Height="187" Margin="10,509,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="715"/>
 
     </Grid>
 </Window>

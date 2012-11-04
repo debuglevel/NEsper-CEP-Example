@@ -50,21 +50,24 @@ namespace CEP.Server
 
         public void CreateStatements()
         {
+
             // every location change (for visualization)
             {
-                var expr = 
-                    "SELECT Identifier, \n"+
+                var expr =
+                    "SELECT Identifier, \n" +
                     "       X, \n" +
-                    "       Y  \n "+
+                    "       Y  \n" +
                     " FROM  LocationSensor";
+
                 createStatement("LocationChange", expr);
             }
 
             // flow rate of all cars in the last x seconds
             {
                 var expr =
-                    "SELECT avg(Speed) \n " +
+                    "SELECT avg(Speed) \n" +
                     " FROM  SpeedSensor.win:time(30 sec)";
+
                 createStatement("OverallAverageSpeed", expr);
             }
 
@@ -73,15 +76,16 @@ namespace CEP.Server
                 var expr =
                     "SELECT    Identifier, \n" +
                     "          avg(Speed)  \n" +
-                    " FROM     SpeedSensor.win:time(30 sec) \n " +
+                    " FROM     SpeedSensor.win:time(30 sec) \n" +
                     " GROUP BY Identifier";
+
                 createStatement("IndividualAverageSpeed", expr);
             }
 
             // low air pressure of a tire while driving fast
             {
                 String expression =
-                    "SELECT speed.Identifier AS c, \n " +
+                    "SELECT speed.Identifier AS c, \n" +
                     "       Pressure         AS p, \n" +
                     "       avg(Speed)       AS s  \n" +
                     " FROM  SpeedSensor.win:time(10 sec) AS speed,   \n" +
@@ -91,6 +95,39 @@ namespace CEP.Server
                     "   AND speed.Speed       >  50";
 
                 createStatement("LowPressureAndHighSpeed", expression);
+            }
+
+            // speeding while driving in a certain area (which might be a city)
+            {
+                var expr =
+                    "SELECT SpeedSensor.Identifier, \n" +
+                    "       SpeedSensor.Speed, \n" +
+                    "       LocationSensor.X, \n" +
+                    "       LocationSensor.Y \n" +
+                    " FROM  SpeedSensor.win:length(1), \n" +
+                    "       LocationSensor.std:lastevent() \n" +
+                    " WHERE SpeedSensor.Identifier  =  LocationSensor.Identifier \n" +
+                    "   AND SpeedSensor.Speed       > 50 \n" + 
+                    "   AND LocationSensor.X        > 50 \n" +
+                    "   AND LocationSensor.Y        > 50 \n"
+                    ;
+                createStatement("Speeding", expr);
+            }
+
+            // air pressure in a tire falls under 1 bar while parking
+            {
+                String expr =
+                    "SELECT SpeedSensor.Identifier  AS Identifier, \n" +
+                    "       TireSensor.Pressure     AS Pressure, \n" +
+                    "       SpeedSensor.Speed       AS Speed  \n" +
+                    " FROM  SpeedSensor.std:lastevent(), \n" +
+                    "       TireSensor.std:lastevent() \n" +
+                    " WHERE SpeedSensor.Identifier  =  TireSensor.Identifier \n" +
+                    "   AND TireSensor.Pressure     <  1 \n" +
+                    "   AND SpeedSensor.Speed       =  0"
+                    ;
+
+                createStatement("LowPressure", expr);
             }
         }
 

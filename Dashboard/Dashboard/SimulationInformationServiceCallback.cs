@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CEP.Dashboard.SimulationInformationService;
+using CEP.Dashboard.Utils;
 
 namespace CEP.Dashboard
 {
@@ -12,6 +13,9 @@ namespace CEP.Dashboard
     {
         public delegate void LocationChangedEventHandler(LocationPoint location);
         public event LocationChangedEventHandler LocationChanged;
+
+        public delegate void NotificationEventHandler(string notification);
+        public event NotificationEventHandler NotificationReceived;
 
         public SimulationInformationServiceCallback(Data data)
         {
@@ -56,6 +60,14 @@ namespace CEP.Dashboard
             if (this.LocationChanged != null)
             {
                 this.LocationChanged(point);
+            }
+        }
+
+        void ISimulationInformationServiceCallback.ReceiveNotificationDictionary(string statementName, Dictionary<string, object> dict)
+        {
+            if (this.NotificationReceived != null)
+            {
+                this.NotificationReceived(statementName + ": " + dict.ToDebugString());
             }
         }
     }

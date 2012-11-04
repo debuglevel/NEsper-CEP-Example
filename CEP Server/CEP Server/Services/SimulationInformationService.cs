@@ -20,6 +20,8 @@ namespace CEP.Server.Adaptor
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         ISimulationInformationClient client;
 
+        EPServiceProvider epService = EPServiceProviderManager.GetDefaultProvider();
+
         public SimulationInformationService()
         {
             Log.Info("Created Service Instance of SimulationInformationService");
@@ -27,12 +29,25 @@ namespace CEP.Server.Adaptor
             client = OperationContext.Current.GetCallbackChannel<ISimulationInformationClient>();
         }
 
+        public void SubscribeStatement(string statementName)
+        {
+            Log.Info("Client subscribed to get notifications about Statement "+statementName);
+
+            var statement = epService.EPAdministrator.GetStatement(statementName);
+
+            if (statement != null)
+            {
+                statement.Events += SendNotifications;
+            }
+            else
+            {
+                Log.WarnFormat("Client wants to subscribe to Statement {0} which does not exist.", statementName);
+            }
+        }
+
         public Boolean SubscribeSensorData()
         {
             Log.Info("Client subscribed to get sensor data");
-            //client = OperationContext.Current.GetCallbackChannel<ISimulationInformationClient>();
-
-            EPServiceProvider epService = EPServiceProviderManager.GetDefaultProvider();
 
             epService.EPAdministrator.GetStatement("OverallAverageSpeed").Events += OnOverallAverageSpeed;
             epService.EPAdministrator.GetStatement("IndividualAverageSpeed").Events += OnIndividualAverageSpeed;
@@ -103,6 +118,27 @@ namespace CEP.Server.Adaptor
             {
                 Log.Debug("Send OnOverallAverageSpeed Event");
                 client.ReceiveOverallAverageSpeed(avgSpeed);
+            }
+            catch (TimeoutException ex)
+            {
+                Log.Error("Sending notification timed out: " + ex.Message);
+                this.shutdownServiceInstance();
+            }
+            catch (CommunicationException ex)
+            {
+                Log.Error("Sending notification failed: " + ex.Message);
+                this.shutdownServiceInstance();
+            }
+        }
+
+        private void SendNotifications(object sender, UpdateEventArgs e)
+        {
+            var dict = e.NewEvents.FirstOrDefault().Underlying as Dictionary<String, object>;
+
+            try
+            {
+                Log.Debug("Sending subscribed notification as dictionary");
+                client.ReceiveNotificationDictionary(e.Statement.Name, dict);
             }
             catch (TimeoutException ex)
             {

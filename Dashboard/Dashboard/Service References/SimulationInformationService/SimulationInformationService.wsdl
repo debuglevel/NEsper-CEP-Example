@@ -287,7 +287,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_ISimulationInformationService_DummyPointD_Input_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ISimulationInformationService_SubscribeStatement_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -310,7 +310,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_ISimulationInformationService_DummyPointD_output_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ISimulationInformationService_SubscribeStatement_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -448,13 +448,37 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ISimulationInformationService_ReceiveNotificationDictionary_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Utils" />
-      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations" />
-      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Simulations.Car" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CEP.Common.Utils" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ISimulationInformationService_PingServerVoid_InputMessage">
@@ -481,11 +505,11 @@
   <wsdl:message name="ISimulationInformationService_SubscribeSensorData_OutputMessage">
     <wsdl:part name="parameters" element="tns:SubscribeSensorDataResponse" />
   </wsdl:message>
-  <wsdl:message name="ISimulationInformationService_DummyPointD_InputMessage">
-    <wsdl:part name="parameters" element="tns:DummyPointD" />
+  <wsdl:message name="ISimulationInformationService_SubscribeStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubscribeStatement" />
   </wsdl:message>
-  <wsdl:message name="ISimulationInformationService_DummyPointD_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DummyPointDResponse" />
+  <wsdl:message name="ISimulationInformationService_SubscribeStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubscribeStatementResponse" />
   </wsdl:message>
   <wsdl:message name="ISimulationInformationService_PingDashboardVoid_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:PingDashboardVoid" />
@@ -501,6 +525,9 @@
   </wsdl:message>
   <wsdl:message name="ISimulationInformationService_ReceiveIndividualLocation_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ReceiveIndividualLocation" />
+  </wsdl:message>
+  <wsdl:message name="ISimulationInformationService_ReceiveNotificationDictionary_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveNotificationDictionary" />
   </wsdl:message>
   <wsdl:portType name="ISimulationInformationService">
     <wsdl:operation name="PingServerVoid">
@@ -521,9 +548,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISimulationInformationService/SubscribeSensorData" message="tns:ISimulationInformationService_SubscribeSensorData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/SubscribeSensorDataResponse" message="tns:ISimulationInformationService_SubscribeSensorData_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DummyPointD">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISimulationInformationService/DummyPointD" message="tns:ISimulationInformationService_DummyPointD_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/DummyPointDResponse" message="tns:ISimulationInformationService_DummyPointD_OutputMessage" />
+    <wsdl:operation name="SubscribeStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulationInformationService/SubscribeStatement" message="tns:ISimulationInformationService_SubscribeStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/SubscribeStatementResponse" message="tns:ISimulationInformationService_SubscribeStatement_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PingDashboardVoid">
       <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/PingDashboardVoid" message="tns:ISimulationInformationService_PingDashboardVoid_OutputCallbackMessage" />
@@ -539,6 +566,9 @@
     </wsdl:operation>
     <wsdl:operation name="ReceiveIndividualLocation">
       <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/ReceiveIndividualLocation" message="tns:ISimulationInformationService_ReceiveIndividualLocation_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveNotificationDictionary">
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/ReceiveNotificationDictionary" message="tns:ISimulationInformationService_ReceiveNotificationDictionary_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSDualHttpBinding_ISimulationInformationService" type="tns:ISimulationInformationService">
@@ -591,14 +621,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DummyPointD">
-      <soap12:operation soapAction="http://tempuri.org/ISimulationInformationService/DummyPointD" style="document" />
+    <wsdl:operation name="SubscribeStatement">
+      <soap12:operation soapAction="http://tempuri.org/ISimulationInformationService/SubscribeStatement" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_DummyPointD_Input_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_SubscribeStatement_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_DummyPointD_output_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_SubscribeStatement_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -634,6 +664,13 @@
       <soap12:operation soapAction="http://tempuri.org/ISimulationInformationService/ReceiveIndividualLocation" style="document" />
       <wsdl:output>
         <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_ReceiveIndividualLocation_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveNotificationDictionary">
+      <soap12:operation soapAction="http://tempuri.org/ISimulationInformationService/ReceiveNotificationDictionary" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_ReceiveNotificationDictionary_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

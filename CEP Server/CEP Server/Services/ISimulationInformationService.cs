@@ -28,5 +28,8 @@ namespace CEP.Server.Adaptor
 
         [OperationContract]
         Boolean SubscribeSensorData();
+
+        [OperationContract]
+        void SubscribeStatement(string statementName);
     }
 }

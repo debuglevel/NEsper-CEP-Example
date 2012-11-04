@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{128619DC-62AB-4841-AD30-809565C54E2D}</ProjectGuid>
+    <ProjectGuid>{BAE1A33C-A029-404F-96CB-F59D7ACCC6DE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CEP.Common</RootNamespace>

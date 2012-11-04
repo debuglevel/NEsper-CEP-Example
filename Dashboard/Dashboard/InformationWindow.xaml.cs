@@ -52,6 +52,7 @@ namespace CEP.Dashboard
 
             this.callback = new SimulationInformationServiceCallback(data);
             callback.LocationChanged += this.changeLocation;
+            callback.NotificationReceived += this.displayNotification;
 
             InstanceContext instanceContext = new InstanceContext(callback);
             this.proxy = new SimulationInformationServiceClient(instanceContext);
@@ -78,6 +79,7 @@ namespace CEP.Dashboard
             host.Child = this.chart;
         }
 
+        #region wpf code
         private Chart createLocationChart()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
@@ -135,6 +137,7 @@ namespace CEP.Dashboard
 
             return chart1;
         }
+        #endregion
 
         private void changeLocation(LocationPoint newLocationPoint)
         {
@@ -151,6 +154,16 @@ namespace CEP.Dashboard
             {
                 chart.Series["Autos"].Points.AddXY(point.X, point.Y);
             }
+        }
+
+        private void btnSubscribeStatement_Click(object sender, RoutedEventArgs e)
+        {
+            proxy.SubscribeStatementAsync((listboxStatements.SelectedItem as Statement).Name);
+        }
+        
+        private void displayNotification(string notification)
+        {
+            this.notifications.AppendText(notification+"\n");
         }
     }
 }
