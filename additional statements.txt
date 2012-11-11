@@ -1,0 +1,5 @@
+// this statements fires as soon as a LocationSensor of a certain car does not fire events for 10 seconds.
+SELECT     count(*), Identifier
+ FROM      LocationSensor.win:time(10 sec)
+ GROUP BY  LocationSensor.Identifier
+ HAVING    count(*) = 0
