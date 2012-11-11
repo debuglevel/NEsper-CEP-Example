@@ -50,7 +50,6 @@ namespace CEP.Server
 
         public void CreateStatements()
         {
-
             // every location change (for visualization)
             {
                 var expr =
@@ -107,9 +106,9 @@ namespace CEP.Server
                     " FROM  SpeedSensor.win:length(1), \n" +
                     "       LocationSensor.std:lastevent() \n" +
                     " WHERE SpeedSensor.Identifier  =  LocationSensor.Identifier \n" +
-                    "   AND SpeedSensor.Speed       > 50 \n" + 
-                    "   AND LocationSensor.X        > 50 \n" +
-                    "   AND LocationSensor.Y        > 50 \n"
+                    "   AND SpeedSensor.Speed       > 50 \n" +
+                    "   AND LocationSensor.X        > 50 \n"
+                    //"   AND LocationSensor.Y        > 50 \n"
                     ;
                 createStatement("Speeding", expr);
             }
@@ -129,13 +128,35 @@ namespace CEP.Server
 
                 createStatement("LowPressure", expr);
             }
+
+            // air pressure in a tire falls under 1 bar while parking
+            {
+                String expr =
+    "SELECT SpeedSensor.Identifier  AS Identifier \n" +
+    ",       SpeedSensor.Speed       AS Speed \n" +
+    ",       TireSensor.Pressure     AS Pressure \n" +
+    ",       LocationSensor.X        AS X \n" +
+    ",       LocationSensor.Y        AS Y  \n" +
+    " FROM  SpeedSensor.win:time(2 sec) \n" +
+    ",       TireSensor.win:time(2 sec) \n" +
+    ",       LocationSensor.win:time(2 sec) \n" +
+    " WHERE SpeedSensor.Identifier  =  TireSensor.Identifier AND\n" +
+    "       SpeedSensor.Identifier  =  LocationSensor.Identifier"
+    ;
+
+                //XXX: .std:lastevent() does not seem to work properly - using .win:time(2 sec) instead as a poor workaround
+
+                createStatement("SensorChange", expr);
+            }
+
+
         }
 
         private void defaultUpdateEventHandler(object sender, UpdateEventArgs e)
         {
             var attributes = (e.NewEvents.FirstOrDefault().Underlying as Dictionary<String, object>);
 
-            Log.Info("An Event occured: " + attributes.ToDebugString());
+            Log.Info("An Event (" +e.Statement.Name + ") occured: "+ attributes.ToDebugString());
         }
     }
 }
