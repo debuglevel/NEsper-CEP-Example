@@ -61,6 +61,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="UnsubscribeStatement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="statementName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsubscribeStatementResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="PingDashboardVoid">
     <xs:complexType>
       <xs:sequence />
@@ -100,6 +112,13 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="statementName" nillable="true" type="xs:string" />
         <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dict" nillable="true" type="q3:ArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReceiveSensorChange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dict" nillable="true" type="q4:ArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

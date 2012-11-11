@@ -31,5 +31,8 @@ namespace CEP.Server.Adaptor
 
         [OperationContract]
         void SubscribeStatement(string statementName);
+
+        [OperationContract]
+        void UnsubscribeStatement(string statementName);
     }
 }

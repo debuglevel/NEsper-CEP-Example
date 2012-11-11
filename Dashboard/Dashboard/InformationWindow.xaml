@@ -2,33 +2,39 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:CEP.Dashboard" x:Class="CEP.Dashboard.InformationWindow"
-        Title="InformationWindow" Height="744" Width="751.425">
+        Title="InformationWindow" Height="571" Width="873.425">
     <Window.DataContext>
-        <local:Data >
+        <local:Data OverallAverageSpeed="123.65588" >
+            <local:Data.Cars>
+                <local:CarInfo Identifier="BLA-BA 124" Pressure="2" Speed="3" X="4" Y="5"/>
+                <local:CarInfo Identifier="BUB-LE 43" Pressure="8" Speed="7" X="6" Y="5"/>
+            </local:Data.Cars>
             <local:Data.Statements>
                 <local:Statement CQL="cql test" Name="name test"/>
                 <local:Statement CQL="cql2" Name="name2"/>
             </local:Data.Statements>
         </local:Data>
     </Window.DataContext>
-    <Grid>
+    <Grid Margin="0,0,0,0">
         <Button Content="Connect to CEP Server" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="136" Click="Button_Connect"/>
-        <Label Content="Average Speed (Overall):" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top"/>
-        <Label HorizontalAlignment="Left" Margin="155,37,0,0" VerticalAlignment="Top" Height="26" Width="124" Content="{Binding OverallAverageSpeed}">
+        <Label Content="Average Speed (Overall):" HorizontalAlignment="Left" Margin="627,37,0,0" VerticalAlignment="Top"/>
+        <Label HorizontalAlignment="Left" Margin="772,37,0,0" VerticalAlignment="Top" Height="26" Width="78" Content="{Binding OverallAverageSpeed}" ContentStringFormat="{}{0:N2}">
         </Label>
-        <Label Content="Average Speed (Individual):" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
-        <DataGrid HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Height="383" Width="283" IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding IndividualAverageSpeed}"/>
-        <WindowsFormsHost x:Name="windowsFormsHost" HorizontalAlignment="Left" Height="400" Margin="322,104,0,0" VerticalAlignment="Top" Width="400"/>
+        <DataGrid HorizontalAlignment="Left" Margin="315,37,0,0" VerticalAlignment="Top" Height="300" Width="307" IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding Cars}"/>
+        <WindowsFormsHost x:Name="windowsFormsHost" HorizontalAlignment="Left" Height="300" Margin="10,37,0,0" VerticalAlignment="Top" Width="300"/>
         
-        <ListBox x:Name="listboxStatements" HorizontalAlignment="Left" Height="93" Margin="538,6,0,0" VerticalAlignment="Top" Width="184" ItemsSource="{Binding Statements}">
+        <ListBox x:Name="listboxStatements" HorizontalAlignment="Left" Height="62" Margin="627,96,0,0" VerticalAlignment="Top" Width="184" ItemsSource="{Binding Statements}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Path=(Name)}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="btnSubscribeStatement" Content="Subscribe" HorizontalAlignment="Left" Margin="458,6,0,0" VerticalAlignment="Top" Width="75" Click="btnSubscribeStatement_Click"/>
-        <TextBox x:Name="notifications" HorizontalAlignment="Left" Height="187" Margin="10,509,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="715"/>
+        <Button x:Name="btnSubscribeStatement" Content="Subscribe" HorizontalAlignment="Left" Margin="627,163,0,0" VerticalAlignment="Top" Width="75" Click="btnSubscribeStatement_Click"/>
+        <TextBox x:Name="tbNotifications" Margin="10,342,10,10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
+        <Label Content="Statements:" HorizontalAlignment="Left" Margin="627,68,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnUnsubscribeStatement" Content="Unsubscribe" HorizontalAlignment="Left" Margin="707,163,0,0" VerticalAlignment="Top" Width="75" Click="btnUnsubscribeStatement_Click"/>
+        <CheckBox x:Name="cbShowDuplicates" Content="Show Duplicates" HorizontalAlignment="Left" Margin="627,321,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

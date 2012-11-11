@@ -26,6 +26,19 @@ namespace CEP.Dashboard
     public partial class InformationWindow : Window
     {
         SimulationInformationServiceClient proxy;
+        public SimulationInformationServiceClient Proxy
+        {
+            get { return proxy; }
+            set { proxy = value; }
+        }
+
+        List<string> notifications = new List<string>();
+        public List<string> Notifications
+        {
+            get { return notifications; }
+            set { notifications = value; }
+        }
+
         SimulationInformationServiceCallback callback;
 
         Data data;
@@ -158,12 +171,27 @@ namespace CEP.Dashboard
 
         private void btnSubscribeStatement_Click(object sender, RoutedEventArgs e)
         {
-            proxy.SubscribeStatementAsync((listboxStatements.SelectedItem as Statement).Name);
+            if (proxy != null)
+            {
+                proxy.SubscribeStatementAsync((listboxStatements.SelectedItem as Statement).Name);
+            }
         }
         
         private void displayNotification(string notification)
         {
-            this.notifications.AppendText(notification+"\n");
+            if (this.notifications.Contains(notification) == false || this.cbShowDuplicates.IsChecked == true)
+            {
+                this.notifications.Add(notification);
+                this.tbNotifications.AppendText(notification + "\n");
+            }
+        }
+
+        private void btnUnsubscribeStatement_Click(object sender, RoutedEventArgs e)
+        {
+            if (proxy != null)
+            {
+                proxy.UnsubscribeStatementAsync((listboxStatements.SelectedItem as Statement).Name);
+            }
         }
     }
 }

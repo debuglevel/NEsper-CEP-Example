@@ -31,5 +31,8 @@ namespace CEP.Server.Adaptor
 
         [OperationContract(IsOneWay = true)]
         void ReceiveNotificationDictionary(string statementName, Dictionary<String, object> dict);
+
+        [OperationContract(IsOneWay = true)]
+        void ReceiveSensorChange(Dictionary<String, object> dict);
     }
 }

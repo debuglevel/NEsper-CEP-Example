@@ -45,6 +45,22 @@ namespace CEP.Server.Adaptor
             }
         }
 
+        public void UnsubscribeStatement(string statementName)
+        {
+            Log.Info("Client unsubscribed to get no more notifications about Statement " + statementName);
+
+            var statement = epService.EPAdministrator.GetStatement(statementName);
+
+            if (statement != null)
+            {
+                statement.Events -= SendNotifications;
+            }
+            else
+            {
+                Log.WarnFormat("Client wants to unsubscribe from Statement {0} which does not exist.", statementName);
+            }
+        }
+
         public Boolean SubscribeSensorData()
         {
             Log.Info("Client subscribed to get sensor data");
@@ -52,12 +68,34 @@ namespace CEP.Server.Adaptor
             epService.EPAdministrator.GetStatement("OverallAverageSpeed").Events += OnOverallAverageSpeed;
             epService.EPAdministrator.GetStatement("IndividualAverageSpeed").Events += OnIndividualAverageSpeed;
             epService.EPAdministrator.GetStatement("LocationChange").Events += OnIndividualLocationChange;
+            epService.EPAdministrator.GetStatement("SensorChange").Events += OnSensorChange;
 
             Log.Debug("Ping Dashboard");
             client.PingDashboardVoid();
             Log.Debug("done pinging dashboard");
 
             return true;
+        }
+
+        private void OnSensorChange(object sender, UpdateEventArgs e)
+        {
+            var dict = e.NewEvents.FirstOrDefault().Underlying as Dictionary<String, object>;
+
+            try
+            {
+                Log.Debug("Send OnSensorChange Event");
+                client.ReceiveSensorChange(dict);
+            }
+            catch (TimeoutException ex)
+            {
+                Log.Error("Sending notification timed out: " + ex.Message);
+                this.shutdownServiceInstance();
+            }
+            catch (CommunicationException ex)
+            {
+                Log.Error("Sending notification failed: " + ex.Message);
+                this.shutdownServiceInstance();
+            }
         }
 
         private void OnIndividualAverageSpeed(object sender, UpdateEventArgs e)
@@ -200,6 +238,8 @@ namespace CEP.Server.Adaptor
             epService.EPAdministrator.GetStatement("OverallAverageSpeed").Events -= OnOverallAverageSpeed;
             epService.EPAdministrator.GetStatement("IndividualAverageSpeed").Events -= OnIndividualAverageSpeed;
             epService.EPAdministrator.GetStatement("LocationChange").Events -= OnIndividualLocationChange;
+            epService.EPAdministrator.GetStatement("SensorChange").Events -= OnSensorChange;
+
         }
     }
 }

@@ -300,6 +300,12 @@ namespace CEP.Dashboard.SimulationInformationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/SubscribeStatement", ReplyAction="http://tempuri.org/ISimulationInformationService/SubscribeStatementResponse")]
         System.Threading.Tasks.Task SubscribeStatementAsync(string statementName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/UnsubscribeStatement", ReplyAction="http://tempuri.org/ISimulationInformationService/UnsubscribeStatementResponse")]
+        void UnsubscribeStatement(string statementName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimulationInformationService/UnsubscribeStatement", ReplyAction="http://tempuri.org/ISimulationInformationService/UnsubscribeStatementResponse")]
+        System.Threading.Tasks.Task UnsubscribeStatementAsync(string statementName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -322,6 +328,9 @@ namespace CEP.Dashboard.SimulationInformationService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveNotificationDictionary")]
         void ReceiveNotificationDictionary(string statementName, System.Collections.Generic.Dictionary<string, object> dict);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveSensorChange")]
+        void ReceiveSensorChange(System.Collections.Generic.Dictionary<string, object> dict);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -398,6 +407,14 @@ namespace CEP.Dashboard.SimulationInformationService {
         
         public System.Threading.Tasks.Task SubscribeStatementAsync(string statementName) {
             return base.Channel.SubscribeStatementAsync(statementName);
+        }
+        
+        public void UnsubscribeStatement(string statementName) {
+            base.Channel.UnsubscribeStatement(statementName);
+        }
+        
+        public System.Threading.Tasks.Task UnsubscribeStatementAsync(string statementName) {
+            return base.Channel.UnsubscribeStatementAsync(statementName);
         }
     }
 }
