@@ -35,24 +35,30 @@ namespace CEP.Dashboard
         public StatementWindow()
         {
             InitializeComponent();
+
+            this.createProxy();
         }
 
         private void createProxy()
         {
             Debug.WriteLine("Created Proxy");
 
-            proxy = new StatementManagerService.StatementManagerServiceClient();
+            this.proxy = new StatementManagerService.StatementManagerServiceClient();
         }
 
         private void ButtonGetStatements_Click(object sender, RoutedEventArgs e)
         {
-            this.createProxy();
             var statements = proxy.GetStatements();
             data.Statements.Clear();
             foreach (var statement in statements)
             {
                 data.Statements.Add(new Statement() { Name = statement.Key, CQL = statement.Value });
             }
+        }
+
+        private void btnAddStatement_Click(object sender, RoutedEventArgs e)
+        {
+            this.proxy.CreateStatement(this.tbStatementName.Text, this.tbStatement.Text);
         }
     }
 }

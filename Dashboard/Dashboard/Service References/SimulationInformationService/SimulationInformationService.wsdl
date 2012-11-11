@@ -333,6 +333,52 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ISimulationInformationService_UnsubscribeStatement_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ISimulationInformationService_UnsubscribeStatement_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSDualHttpBinding_ISimulationInformationService_PingDashboardVoid_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -471,6 +517,29 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ISimulationInformationService_ReceiveSensorChange_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/CEP/SimulationInformation/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -511,6 +580,12 @@
   <wsdl:message name="ISimulationInformationService_SubscribeStatement_OutputMessage">
     <wsdl:part name="parameters" element="tns:SubscribeStatementResponse" />
   </wsdl:message>
+  <wsdl:message name="ISimulationInformationService_UnsubscribeStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeStatement" />
+  </wsdl:message>
+  <wsdl:message name="ISimulationInformationService_UnsubscribeStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeStatementResponse" />
+  </wsdl:message>
   <wsdl:message name="ISimulationInformationService_PingDashboardVoid_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:PingDashboardVoid" />
   </wsdl:message>
@@ -528,6 +603,9 @@
   </wsdl:message>
   <wsdl:message name="ISimulationInformationService_ReceiveNotificationDictionary_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ReceiveNotificationDictionary" />
+  </wsdl:message>
+  <wsdl:message name="ISimulationInformationService_ReceiveSensorChange_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveSensorChange" />
   </wsdl:message>
   <wsdl:portType name="ISimulationInformationService">
     <wsdl:operation name="PingServerVoid">
@@ -552,6 +630,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISimulationInformationService/SubscribeStatement" message="tns:ISimulationInformationService_SubscribeStatement_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/SubscribeStatementResponse" message="tns:ISimulationInformationService_SubscribeStatement_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UnsubscribeStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulationInformationService/UnsubscribeStatement" message="tns:ISimulationInformationService_UnsubscribeStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/UnsubscribeStatementResponse" message="tns:ISimulationInformationService_UnsubscribeStatement_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PingDashboardVoid">
       <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/PingDashboardVoid" message="tns:ISimulationInformationService_PingDashboardVoid_OutputCallbackMessage" />
     </wsdl:operation>
@@ -569,6 +651,9 @@
     </wsdl:operation>
     <wsdl:operation name="ReceiveNotificationDictionary">
       <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/ReceiveNotificationDictionary" message="tns:ISimulationInformationService_ReceiveNotificationDictionary_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSensorChange">
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulationInformationService/ReceiveSensorChange" message="tns:ISimulationInformationService_ReceiveSensorChange_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSDualHttpBinding_ISimulationInformationService" type="tns:ISimulationInformationService">
@@ -632,6 +717,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UnsubscribeStatement">
+      <soap12:operation soapAction="http://tempuri.org/ISimulationInformationService/UnsubscribeStatement" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_UnsubscribeStatement_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_UnsubscribeStatement_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="PingDashboardVoid">
       <soap12:operation soapAction="http://tempuri.org/ISimulationInformationService/PingDashboardVoid" style="document" />
       <wsdl:output>
@@ -671,6 +767,13 @@
       <soap12:operation soapAction="http://tempuri.org/ISimulationInformationService/ReceiveNotificationDictionary" style="document" />
       <wsdl:output>
         <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_ReceiveNotificationDictionary_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSensorChange">
+      <soap12:operation soapAction="http://tempuri.org/ISimulationInformationService/ReceiveSensorChange" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ISimulationInformationService_ReceiveSensorChange_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
