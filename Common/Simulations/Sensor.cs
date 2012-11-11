@@ -46,14 +46,14 @@ namespace CEP.Common.Simulations
         {
             while (true)
             {
-                Thread.Sleep(Utils.NormalRandom.NextInt(1000, 200, 300, 2000));
+                Thread.Sleep(Utils.NormalRandom.NextInt(3000, 200, 2000, 4000));
                 this.update();
             }
         }
 
         protected virtual void update()
         {
-            Log.DebugFormat("Updated Sensor: {0}", this.ToString());
+            Log.Debug("Updated Sensor: " + this.ToString());
 
             if (SensorUpdated != null)
             {
