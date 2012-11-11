@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CarInfo.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="MainWindow.xaml.cs">

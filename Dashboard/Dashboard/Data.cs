@@ -17,6 +17,7 @@ namespace CEP.Dashboard
         {
             this.individualAverageSpeed = new ObservableCollection<KeyValuePair<string, double?>>();
             this.statements = new ObservableCollection<Statement>();
+            this.cars = new ObservableCollection<CarInfo>();
         }
 
         ObservableCollection<KeyValuePair<string, double?>> individualAverageSpeed;
@@ -49,6 +50,17 @@ namespace CEP.Dashboard
             {
                 statements = value;
                 OnPropertyChanged("Statements");
+            }
+        }
+
+        private ObservableCollection<CarInfo> cars;
+        public ObservableCollection<CarInfo> Cars
+        {
+            get { return cars; }
+            set
+            {
+                cars = value;
+                OnPropertyChanged("Cars");
             }
         }
 

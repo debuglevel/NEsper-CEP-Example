@@ -70,5 +70,29 @@ namespace CEP.Dashboard
                 this.NotificationReceived(statementName + ": " + dict.ToDebugString());
             }
         }
+
+        void ISimulationInformationServiceCallback.ReceiveSensorChange(Dictionary<string, object> dict)
+        {
+            var identifier = dict["Identifier"] as string;
+            var speed = dict["Speed"] as double?;
+            var x = dict["X"] as double?;
+            var y = dict["Y"] as double?;
+            var pressure = dict["Pressure"] as double?;
+
+            var car = this.Data.Cars.FirstOrDefault(c => c.Identifier == identifier);
+
+            if (car == null)
+            {
+                car = new CarInfo();
+                this.Data.Cars.Add(car);
+            }
+
+            car.Identifier = identifier;
+            car.Speed = speed;
+            car.X = x;
+            car.Y = y;
+            car.Pressure = pressure;
+
+        }
     }
 }
