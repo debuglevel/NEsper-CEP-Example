@@ -48,7 +48,7 @@ namespace CEP.Dashboard
             }
             set
             {
-                pressure = value;
+                pressure = Rounding.Round(value);
                 OnPropertyChanged("Pressure");
             }
         }
@@ -62,7 +62,7 @@ namespace CEP.Dashboard
             }
             set
             {
-                speed = value;
+                speed = Rounding.Round(value);
                 OnPropertyChanged("Speed");
             }
         }
@@ -76,7 +76,7 @@ namespace CEP.Dashboard
             }
             set
             {
-                x = value;
+                x = Rounding.Round(value);
                 OnPropertyChanged("X");
             }
         }
@@ -90,7 +90,7 @@ namespace CEP.Dashboard
             }
             set
             {
-                y = value;
+                y = Rounding.Round(value);
                 OnPropertyChanged("Y");
             }
         }

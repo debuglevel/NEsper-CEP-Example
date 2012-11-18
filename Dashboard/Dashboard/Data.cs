@@ -37,7 +37,7 @@ namespace CEP.Dashboard
             get { return overallAverageSpeed; }
             set
             {
-                overallAverageSpeed = value;
+                overallAverageSpeed = Rounding.Round(value);
                 OnPropertyChanged("OverallAverageSpeed");
             }
         }
