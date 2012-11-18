@@ -66,7 +66,6 @@ namespace CEP.Server.Adaptor
             Log.Info("Client subscribed to get sensor data");
 
             epService.EPAdministrator.GetStatement("OverallAverageSpeed").Events += OnOverallAverageSpeed;
-            epService.EPAdministrator.GetStatement("IndividualAverageSpeed").Events += OnIndividualAverageSpeed;
             epService.EPAdministrator.GetStatement("LocationChange").Events += OnIndividualLocationChange;
             epService.EPAdministrator.GetStatement("SensorChange").Events += OnSensorChange;
 
@@ -85,29 +84,6 @@ namespace CEP.Server.Adaptor
             {
                 Log.Debug("Send OnSensorChange Event");
                 client.ReceiveSensorChange(dict);
-            }
-            catch (TimeoutException ex)
-            {
-                Log.Error("Sending notification timed out: " + ex.Message);
-                this.shutdownServiceInstance();
-            }
-            catch (CommunicationException ex)
-            {
-                Log.Error("Sending notification failed: " + ex.Message);
-                this.shutdownServiceInstance();
-            }
-        }
-
-        private void OnIndividualAverageSpeed(object sender, UpdateEventArgs e)
-        {
-            var dict = e.NewEvents.FirstOrDefault().Underlying as Dictionary<String, object>;
-            var avgSpeed = dict["avg(Speed)"] as double?;
-            var identifier = dict["Identifier"] as string;
-
-            try
-            {
-                Log.Debug("Send OnIndividualAverageSpeed Event");
-                client.ReceiveIndividualAverageSpeed(identifier, avgSpeed);
             }
             catch (TimeoutException ex)
             {
@@ -236,7 +212,6 @@ namespace CEP.Server.Adaptor
             EPServiceProvider epService = EPServiceProviderManager.GetDefaultProvider();
 
             epService.EPAdministrator.GetStatement("OverallAverageSpeed").Events -= OnOverallAverageSpeed;
-            epService.EPAdministrator.GetStatement("IndividualAverageSpeed").Events -= OnIndividualAverageSpeed;
             epService.EPAdministrator.GetStatement("LocationChange").Events -= OnIndividualLocationChange;
             epService.EPAdministrator.GetStatement("SensorChange").Events -= OnSensorChange;
 

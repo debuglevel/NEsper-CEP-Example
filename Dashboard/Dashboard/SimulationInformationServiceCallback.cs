@@ -40,16 +40,6 @@ namespace CEP.Dashboard
             Data.OverallAverageSpeed = overallAverageSpeed;
         }
 
-        void ISimulationInformationServiceCallback.ReceiveIndividualAverageSpeed(string identifier, double? individualAverageSpeed)
-        {
-            Debug.WriteLine("Receive IndividualAverageSpeed");
-
-            var kvp = Data.IndividualAverageSpeed.FirstOrDefault(x => x.Key == identifier);
-            Data.IndividualAverageSpeed.Remove(kvp);
-
-            Data.IndividualAverageSpeed.Add(new KeyValuePair<string, double?>(identifier, individualAverageSpeed));
-        }
-
         void ISimulationInformationServiceCallback.PingDashboardVoid()
         {
             Debug.WriteLine("Receive Ping");
@@ -92,7 +82,6 @@ namespace CEP.Dashboard
             car.X = x;
             car.Y = y;
             car.Pressure = pressure;
-
         }
     }
 }

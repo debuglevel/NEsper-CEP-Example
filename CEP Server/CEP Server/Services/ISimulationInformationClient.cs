@@ -24,9 +24,6 @@ namespace CEP.Server.Adaptor
         void ReceiveOverallAverageSpeed(double? overallAverageSpeed);
 
         [OperationContract(IsOneWay = true)]
-        void ReceiveIndividualAverageSpeed(string identifier, double? individualAverageSpeed);
-
-        [OperationContract(IsOneWay = true)]
         void ReceiveIndividualLocation(LocationPoint point);
 
         [OperationContract(IsOneWay = true)]

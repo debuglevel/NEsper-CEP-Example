@@ -11,20 +11,6 @@ namespace CEP.Dashboard
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //private double? averageSpeed;
-        //public double? AverageSpeed
-        //{
-        //    get
-        //    {
-        //        return averageSpeed;
-        //    }
-        //    set
-        //    {
-        //        averageSpeed = value;
-        //        OnPropertyChanged("AverageSpeed");
-        //    }
-        //}
-
         private string identifier;
         public string Identifier
         {
