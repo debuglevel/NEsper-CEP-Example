@@ -23,17 +23,17 @@
         <DataGrid HorizontalAlignment="Left" Margin="315,37,0,0" VerticalAlignment="Top" Height="300" Width="307" IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding Cars}"/>
         <WindowsFormsHost x:Name="windowsFormsHost" HorizontalAlignment="Left" Height="300" Margin="10,37,0,0" VerticalAlignment="Top" Width="300"/>
         
-        <ListBox x:Name="listboxStatements" HorizontalAlignment="Left" Height="62" Margin="627,96,0,0" VerticalAlignment="Top" Width="184" ItemsSource="{Binding Statements}">
+        <ListBox x:Name="listboxStatements" HorizontalAlignment="Left" Height="135" Margin="627,96,0,0" VerticalAlignment="Top" Width="220" ItemsSource="{Binding Statements}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Path=(Name)}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="btnSubscribeStatement" Content="Subscribe" HorizontalAlignment="Left" Margin="627,163,0,0" VerticalAlignment="Top" Width="75" Click="btnSubscribeStatement_Click"/>
+        <Button x:Name="btnSubscribeStatement" Content="Subscribe" HorizontalAlignment="Left" Margin="624,236,0,0" VerticalAlignment="Top" Width="75" Click="btnSubscribeStatement_Click"/>
         <TextBox x:Name="tbNotifications" Margin="10,342,10,10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
         <Label Content="Statements:" HorizontalAlignment="Left" Margin="627,68,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnUnsubscribeStatement" Content="Unsubscribe" HorizontalAlignment="Left" Margin="707,163,0,0" VerticalAlignment="Top" Width="75" Click="btnUnsubscribeStatement_Click"/>
+        <Button x:Name="btnUnsubscribeStatement" Content="Unsubscribe" HorizontalAlignment="Left" Margin="704,236,0,0" VerticalAlignment="Top" Width="75" Click="btnUnsubscribeStatement_Click"/>
         <CheckBox x:Name="cbShowDuplicates" Content="Show Duplicates" HorizontalAlignment="Left" Margin="627,321,0,0" VerticalAlignment="Top"/>
 
     </Grid>
