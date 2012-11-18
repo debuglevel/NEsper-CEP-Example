@@ -320,9 +320,6 @@ namespace CEP.Dashboard.SimulationInformationService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveOverallAverageSpeed")]
         void ReceiveOverallAverageSpeed(System.Nullable<double> overallAverageSpeed);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveIndividualAverageSpeed")]
-        void ReceiveIndividualAverageSpeed(string identifier, System.Nullable<double> individualAverageSpeed);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimulationInformationService/ReceiveIndividualLocation")]
         void ReceiveIndividualLocation(CEP.Dashboard.SimulationInformationService.LocationPoint point);
         

@@ -54,6 +54,7 @@
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\NormalRandom.cs" />
     <Compile Include="Utils\PointD.cs" />
+    <Compile Include="Utils\UniformRandom.cs" />
     <Compile Include="Utils\RandomString.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

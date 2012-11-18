@@ -8,7 +8,7 @@ namespace CEP.Common.Utils
 {
     public static class RandomString
     {
-        private static Random random = new Random();
+        private static System.Random random = UniformRandom.Rand;
 
         public static string Next(int size)
         {

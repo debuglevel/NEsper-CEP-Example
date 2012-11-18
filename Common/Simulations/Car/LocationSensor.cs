@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using CEP.Common;
+using CEP.Common.Utils;
 
 namespace CEP.Common.Simulations.Car
 {
@@ -21,7 +22,7 @@ namespace CEP.Common.Simulations.Car
 
         public LocationSensor(object identifier) : base(identifier)
         {
-            var rand = new Random();
+            var rand = UniformRandom.Rand;
             this.X = rand.Next(0, 101);
             this.Y = rand.Next(0, 101);
         }

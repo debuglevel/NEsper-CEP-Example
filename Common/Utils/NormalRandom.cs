@@ -8,7 +8,7 @@ namespace CEP.Common.Utils
 {
     public static class NormalRandom
     {
-        private static Random rand = new Random();
+        private static Random rand = UniformRandom.Rand;
 
         public static double Next(double mean, double standardDeviation)
         {

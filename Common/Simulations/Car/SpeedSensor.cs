@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using CEP.Common;
+using CEP.Common.Utils;
 
 namespace CEP.Common.Simulations.Car
 {
@@ -18,7 +19,7 @@ namespace CEP.Common.Simulations.Car
 
         public SpeedSensor(object identifier) : base (identifier)
         {
-            var rand = new Random();
+            var rand = UniformRandom.Rand;
             this.Speed = rand.Next(40);
         }
 

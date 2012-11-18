@@ -42,7 +42,7 @@ namespace CEP.EventGenerators.Simulations
 
         private string createRandomCarIdentifier()
         {
-            var rand = new Random();
+            var rand = UniformRandom.Rand;
             return String.Format("{0}-{1} {2}", cityIdentifiers[rand.Next(cityIdentifiers.Count())], RandomString.Next(2), rand.Next(1,1000));
         }
     }
