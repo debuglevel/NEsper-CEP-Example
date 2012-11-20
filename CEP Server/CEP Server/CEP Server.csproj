@@ -47,6 +47,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\Third Party\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\Third Party\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CGLib">
+      <HintPath>..\..\Third Party\CGLib.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\..\Third Party\log4net.dll</HintPath>
     </Reference>
@@ -108,6 +117,7 @@
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
