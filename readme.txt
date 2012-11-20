@@ -9,6 +9,17 @@ It consists of three parts:
 
 Those parts a wired via .NET WCF (Windows Communication Foundations), namely SOAP HTTP webservices.
 
+
+Getting Started
+===============
+
+1. start CEP Server
+2. start Dashboard
+2.1 open Statement Manager and retrieve the built-in Statements 
+2.2 open the Information Window and connect to the CEP Server
+3. start Event Generators
+
+
 Troubleshooting
 ===============
 
