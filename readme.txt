@@ -1,4 +1,4 @@
-introduction
+Introduction
 ============
 This is a example showing NEsper in action.
 
@@ -9,7 +9,7 @@ It consists of three parts:
 
 Those parts a wired via .NET WCF (Windows Communication Foundations), namely SOAP HTTP webservices.
 
-troubleshooting
+Troubleshooting
 ===============
 
 1. Establishing a connection from Dashboard (Simulation Information) to the CEP Server fails.
@@ -20,7 +20,11 @@ This problem seems only to occur using the SimulationInformationService (and Sim
 This might be because some other service listens on port 80 already. Do you have some HTTP-Server (or even Skype) running?
 
 3. CEP Server services cannot be created.
-You may have to allow WCF to use certain namespaces. "HttpNamespaceManager" is a great tool which will do the trick. (The Namespace/URL you need should be displayed in the exception thrown by the CEP Server.)
+You may have to allow WCF to use certain namespaces. "HttpNamespaceManager" is a great tool which will do the trick:
+
+URL: http://+:8733/Design_Time_Addresses/
+User: NT-AUTORITÄT\INTERAKTIV (at least in a german environment - should be "NT Authority\Interactive" in an english environment)
+Rights: GenericExecute
 
 4. Localisation problem regarding floating numbers in CQL statements
 NEsper might have a problem in non-US environments which do not use a dot as a decimal mark. e.g. in Germany 3.14 is written as 3,14 - writing "3.14" in the statement has no effect (maybe it's interpreted as 314?) while writing "3,14" throws an exception.
