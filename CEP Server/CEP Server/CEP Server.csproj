@@ -48,13 +48,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
-      <HintPath>..\..\..\..\NEsper-4.5.2\lib\net-4.0\log4net.dll</HintPath>
+      <HintPath>..\..\Third Party\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NEsper">
-      <HintPath>..\..\..\..\NEsper-4.5.2\lib\net-4.0\NEsper.dll</HintPath>
+      <HintPath>..\..\Third Party\NEsper.dll</HintPath>
     </Reference>
     <Reference Include="NEsper.IO">
-      <HintPath>..\..\..\..\NEsper-4.5.2\lib\net-4.0\NEsper.IO.dll</HintPath>
+      <HintPath>..\..\Third Party\NEsper.IO.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
